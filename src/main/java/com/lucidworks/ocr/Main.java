@@ -44,12 +44,8 @@ public class Main {
       list = new ArrayList<>(files.length);
       System.out.println("Found "+ files.length+" files in folder "+dir.getAbsolutePath());
       for(File f : files) {
-        if(f.getName().endsWith("pdf")) {
-          list.add(parse(f));
-          System.out.print('.');
-        } else {
-          System.out.println("Skipping non-pdf file "+f.getName());
-        }
+        list.add(parse(f));
+        System.out.print('.');
       }
     } else {
       list = new ArrayList<>();
@@ -72,6 +68,7 @@ public class Main {
     BodyContentHandler handler = new BodyContentHandler();
     parser.parse(stream, handler, metadata, context);
 
+    map.put("filename", f.getName());
     map.put("body", handler.toString());
     for(String s : metadata.names()) {
       map.put(s.replaceAll("[^\\w\\d]", "_"), metadata.get(s));
