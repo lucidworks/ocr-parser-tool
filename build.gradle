@@ -25,6 +25,8 @@ dependencies {
   }
   compile 'com.google.code.gson:gson:2.6.2'
   compile 'org.slf4j:slf4j-simple:1.7.21'
+  compile 'com.levigo.jbig2:levigo-jbig2-imageio:1.6.5'
+  compile 'net.sf.jopt-simple:jopt-simple:5.0.1'
   //compile 'ch.qos.logback:logback-classic:1.1.7'
 }
 
